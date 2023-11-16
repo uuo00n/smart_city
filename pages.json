@@ -1,0 +1,203 @@
+{
+	"pages": [{
+			"path": "pages/start/start",
+			"style": {
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": false
+			}
+
+		},
+		{
+			"path": "pages/index/index",
+			"style": {
+				"navigationBarTitleText": "首页",
+				"enablePullDownRefresh": false,
+				"navigationBarBackgroundColor": "#2979ff",
+				"navigationBarTextStyle": "white"
+			}
+
+		}, {
+			"path": "pages/test/test",
+			"style": {
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": false,
+				"navigationBarBackgroundColor": "#2979ff",
+				"navigationBarTextStyle": "white"
+			}
+
+		}, {
+			"path": "pages/service/service",
+			"style": {
+				"navigationBarTitleText": "全部服务",
+				"enablePullDownRefresh": false,
+				"navigationBarBackgroundColor": "#2979ff",
+				"navigationBarTextStyle": "white"
+			}
+
+		}, {
+			"path": "pages/news/news",
+			"style": {
+				"navigationBarTitleText": "新闻",
+				"enablePullDownRefresh": false,
+				"navigationBarBackgroundColor": "#2979ff",
+				"navigationBarTextStyle": "white"
+			}
+
+		}, {
+			"path": "pages/me/me",
+			"style": {
+				"navigationBarTitleText": "个人中心",
+				"enablePullDownRefresh": false,
+				"navigationBarBackgroundColor": "#2979ff",
+				"navigationBarTextStyle": "white"
+			}
+
+		}
+	    ,{
+            "path" : "pages/park/park",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "停哪儿",
+                "enablePullDownRefresh": false,
+				"navigationBarBackgroundColor": "#2979ff",
+				"navigationBarTextStyle": "white",
+				"app-plus": {
+					"titleNView": {
+						"buttons": [
+							{
+								"text": "停车历史",
+								"fontSize": "15px"
+							}
+						]
+					}
+				}
+            }
+            
+        }
+        ,{
+            "path" : "pages/park_about/park_about",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "停车场详细",
+                "enablePullDownRefresh": false,
+				"navigationBarBackgroundColor": "#2979ff",
+				"navigationBarTextStyle": "white"
+            }
+            
+        }
+        ,{
+            "path" : "pages/park_history/park_history",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "停车历史",
+                "enablePullDownRefresh": false,
+                "navigationBarBackgroundColor": "#2979ff",
+                "navigationBarTextStyle": "white"
+            }
+            
+        }
+        ,{
+            "path" : "pages/metro/metro",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "城市地铁",
+                "enablePullDownRefresh": false,
+				"navigationBarBackgroundColor": "#2979ff",
+				"navigationBarTextStyle": "white"
+            }
+            
+        }
+        ,{
+            "path" : "pages/job/job",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "找工作",
+                "enablePullDownRefresh": false,
+				"navigationBarBackgroundColor": "#2979ff",
+				"navigationBarTextStyle": "white",
+				"app-plus": {
+					"titleNView": {
+						"buttons": [
+							{
+								"text": "我的简历",
+								"fontSize": "15px"
+							}
+						]
+					}
+				}
+            }
+            
+        }
+        ,{
+            "path" : "pages/job_about/job_about",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "招聘详细",
+                "enablePullDownRefresh": false,
+				"navigationBarBackgroundColor": "#2979ff",
+				"navigationBarTextStyle": "white"
+            }
+            
+        }
+        ,{
+            "path" : "pages/job_resume/job_resume",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "我的简历",
+                "enablePullDownRefresh": false,
+				"navigationBarBackgroundColor": "#2979ff",
+				"navigationBarTextStyle": "white"
+            }
+            
+        }
+        ,{
+            "path" : "pages/house/house",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "找房子",
+                "enablePullDownRefresh": false,
+				"navigationBarBackgroundColor": "#2979ff",
+				"navigationBarTextStyle": "white"
+            }
+            
+        }
+    ],
+	"globalStyle": {
+		"navigationBarTextStyle": "black",
+		"navigationBarTitleText": "uni-app",
+		"navigationBarBackgroundColor": "#F8F8F8",
+		"backgroundColor": "#F8F8F8",
+		"app-plus": {
+			"background": "#efeff4"
+		}
+	},
+	"tabBar": {
+		"list": [
+			{
+				"pagePath": "pages/index/index",
+				"iconPath": "static/home.png",
+				"selectedIconPath": "static/home_HL.png",
+				"text": "首页"
+			},
+			{
+				"pagePath": "pages/service/service",
+				"iconPath": "static/service.png",
+				"selectedIconPath": "static/service_HL.png",
+				"text": "全部服务"
+			},
+			{
+				"pagePath": "pages/news/news",
+				"iconPath": "static/news.png",
+				"selectedIconPath": "static/news_HL.png",
+				"text": "新闻"
+			},
+			{
+				"pagePath": "pages/me/me",
+				"iconPath": "static/me.png",
+				"selectedIconPath": "static/me_HL.png",
+				"text": "我的"
+			}
+		]
+		
+	}
+}
