@@ -161,6 +161,17 @@
             }
             
         }
+        ,{
+            "path" : "pages/house_about/house_about",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "房屋详细",
+                "enablePullDownRefresh": false,
+				"navigationBarBackgroundColor": "#2979ff",
+				"navigationBarTextStyle": "white"
+            }
+            
+        }
     ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
