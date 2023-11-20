@@ -172,6 +172,39 @@
             }
             
         }
+        ,{
+            "path" : "pages/traffic/traffic",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "智慧交管",
+                "enablePullDownRefresh": false,
+				"navigationBarBackgroundColor": "#2979ff",
+				"navigationBarTextStyle": "white"
+            }
+            
+        }
+        ,{
+            "path" : "pages/traffic_search/traffic_search",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "违章查询",
+                "enablePullDownRefresh": false,
+				"navigationBarBackgroundColor": "#2979ff",
+				"navigationBarTextStyle": "white"
+            }
+            
+        }
+        ,{
+            "path" : "pages/traffic_record/traffic_record",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "违章记录",
+                "enablePullDownRefresh": false,
+				"navigationBarBackgroundColor": "#2979ff",
+				"navigationBarTextStyle": "white"
+            }
+            
+        }
     ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",

@@ -124,6 +124,9 @@
 				if (sn === '找房子') {
 					url = '../house/house'
 				}
+				if (sn === '智慧交管') {
+					url = '../traffic/traffic'
+				}
 				uni.navigateTo({
 					url: url
 				});
