@@ -127,6 +127,9 @@
 				if (sn === '智慧交管') {
 					url = '../traffic/traffic'
 				}
+				if (sn === '宠物医院') {
+					url = '../pet_hospital/pet_hospital'
+				}
 				uni.navigateTo({
 					url: url
 				});

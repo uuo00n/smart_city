@@ -205,6 +205,28 @@
             }
             
         }
+        ,{
+            "path" : "pages/pet_hospital/pet_hospital",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "宠物医院",
+                "enablePullDownRefresh": false,
+				"navigationBarBackgroundColor": "#2979ff",
+				"navigationBarTextStyle": "white"
+            }
+            
+        }
+        ,{
+            "path" : "pages/pet_doctor/pet_doctor",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "找医生",
+                "enablePullDownRefresh": false,
+				"navigationBarBackgroundColor": "#2979ff",
+				"navigationBarTextStyle": "white"
+            }
+            
+        }
     ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
