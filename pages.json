@@ -227,6 +227,28 @@
             }
             
         }
+        ,{
+            "path" : "pages/pet_inquiry/pet_inquiry",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "问诊",
+                "enablePullDownRefresh": false,
+				"navigationBarBackgroundColor": "#2979ff",
+				"navigationBarTextStyle": "white"
+            }
+            
+        }
+        ,{
+            "path" : "pages/pet_about/pet_about",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "案例详细",
+                "enablePullDownRefresh": false,
+				"navigationBarBackgroundColor": "#2979ff",
+				"navigationBarTextStyle": "white"
+            }
+            
+        }
     ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",

@@ -20,8 +20,10 @@
 				<uni-section title="我的问诊" sub-title="" type="line"></uni-section>
 			</view>
 			<view>
-				<uni-list v-if="consultation_list != 0">
-					<uni-list-item title="" note=""></uni-list-item>
+				<uni-list v-if=" myQ!= 0">
+					<uni-list-item :title="item.doctor.name" :note="'案例描述:'+item.question" clickable v-for="(item,index) in myQ" @click="goInquiry(item)">
+						<image :src="host+item.doctor.avatar" slot="header" style="width: 200rpx; height: 200rpx; border-radius: 5px; margin-right: 10px;"></image>
+					</uni-list-item>
 				</uni-list>
 				<view v-else style="text-align: center; background-color: white; height: 100rpx; padding: 100rpx;">
 					<text>暂无查询</text>
@@ -35,7 +37,7 @@
 			<view>
 				<uni-list>
 					<uni-list-item :title="item.doctor.name" :note="'案例描述:'+item.question" clickable v-for="(item,index) in case_list">
-						<image :src="host+item.imageUrls" slot="header" style="width: 200rpx; height: 150rpx; border-radius: 5px; margin-right: 10px;"></image>
+						<image :src="host+item.doctor.avatar" slot="header" style="width: 200rpx; height: 200rpx; border-radius: 5px; margin-right: 10px;"></image>
 					</uni-list-item>
 				</uni-list>
 			</view>
@@ -49,14 +51,14 @@
 			return {
 				host: 'http://124.93.196.45:10001',
 				pet_list: [],
-				consultation_list:[],
-				case_list:[]
+				case_list:[],
+				myQ:[]
 			}
 		},
 		mounted() {
 			this.getPetData()
-			this.getConsultation()
 			this.getCase()
+			this.getMyquestion()
 		},
 		methods: {
 			getPetData() {
@@ -76,8 +78,6 @@
 			},
 			findDoc(item){
 				uni.setStorageSync("petId",this.pet_list[item.detail.index].id)
-				// console.log(this.pet_list[item.detail.index].id)
-				// console.log(uni.getStorageSync("petId"))
 				uni.navigateTo({
 					url: '../pet_doctor/pet_doctor',
 					success: res => {},
@@ -85,16 +85,22 @@
 					complete: () => {}
 				});
 			},
-			getConsultation(){
+			goInquiry(item){
 				uni.request({
-					url: 'http://124.93.196.45:10001/prod-api/api/pet-hospital/inquiry/my-list',
+					url: 'http://124.93.196.45:10001/prod-api/api/pet-hospital/pet-doctor/list?name='+item.doctor.name,
 					method: 'GET',
 					data: {},
-					header:{
-						Authorization:uni.getStorageSync("token")
+					header: {
+						Authorization: uni.getStorageSync('token')
 					},
 					success: res => {
-						this.consultation_list = res.data.rows
+						uni.setStorageSync("doc_msg",res.data.rows[0])
+						uni.navigateTo({
+							url: '../pet_inquiry/pet_inquiry',
+							success: res => {},
+							fail: () => {},
+							complete: () => {}
+						});
 					},
 					fail: () => {},
 					complete: () => {}
@@ -114,6 +120,25 @@
 					fail: () => {},
 					complete: () => {}
 				});
+			},
+			getMyquestion(){
+				uni.request({
+					url: 'http://124.93.196.45:10001/prod-api/api/pet-hospital/inquiry/my-list?pageNum=1&pageSize=3',
+					method: 'GET',
+					header: {
+						Authorization: uni.getStorageSync('token')
+					},
+					data: {},
+					success: res => {
+						this.myQ = res.data.rows
+						console.log(res)
+					},
+					fail: () => {},
+					complete: () => {}
+				});
+			},
+			goAbout(item){
+				
 			}
 		}
 	}
