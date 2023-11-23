@@ -51,7 +51,7 @@
 			getData() {
 				this.doc_data = uni.getStorageSync("doc_msg")
 				this.q_data = uni.getStorageSync("q_data")
-				console.log(this.doc_data)
+				// console.log(this.doc_data)
 				console.log(this.q_data)
 				uni.request({
 					url: 'http://124.93.196.45:10001/prod-api/api/pet-hospital/inquiry-message/list?inquiryId='+this.q_data.id,

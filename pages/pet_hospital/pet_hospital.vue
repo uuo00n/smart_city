@@ -36,7 +36,7 @@
 			</view>
 			<view>
 				<uni-list>
-					<uni-list-item :title="item.doctor.name" :note="'案例描述:'+item.question" clickable v-for="(item,index) in case_list">
+					<uni-list-item :title="item.doctor.name" :note="'案例描述:'+item.question" clickable v-for="(item,index) in case_list" @click="goAbout(item)">
 						<image :src="host+item.doctor.avatar" slot="header" style="width: 200rpx; height: 200rpx; border-radius: 5px; margin-right: 10px;"></image>
 					</uni-list-item>
 				</uni-list>
@@ -131,14 +131,32 @@
 					data: {},
 					success: res => {
 						this.myQ = res.data.rows
-						console.log(res)
 					},
 					fail: () => {},
 					complete: () => {}
 				});
 			},
 			goAbout(item){
-				
+				uni.request({
+					url: 'http://124.93.196.45:10001/prod-api/api/pet-hospital/pet-doctor/list?name='+item.doctor.name,
+					method: 'GET',
+					data: {},
+					header:{
+						Authorization:uni.getStorageSync("token")
+					},
+					success: res => {
+						uni.setStorageSync("doc_msg",res.data.rows[0])
+					},
+					fail: () => {},
+					complete: () => {}
+				});
+				uni.setStorageSync("q_data",item)
+				uni.navigateTo({
+					url: '../pet_about/pet_about',
+					success: res => {},
+					fail: () => {},
+					complete: () => {}
+				});
 			}
 		}
 	}
