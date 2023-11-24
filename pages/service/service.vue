@@ -5,7 +5,7 @@
 				<uni-section title="搜索服务" sub-title="" type="line"></uni-section>
 			</view>
 			<view class="search-box">
-				<uni-search-bar @confirm="search" cancelText="确认" @cancel="search"></uni-search-bar>
+				<uni-search-bar @confirm="search" cancelText="搜索" @cancel="search"></uni-search-bar>
 			</view>
 		</view>
 		<view class="fenlei">
@@ -23,6 +23,10 @@
 				</scroll-view>
 				<scroll-view scroll-y :style="{ height: winHeight }"
 					style="border-left: 1rpx #808080 solid;border-top: 1rpx #808080 solid;">
+					<h4 style="margin: 30rpx;" v-if="inSearch">搜索结果:</h4>
+					<view v-if="nr.length ===0" style="text-align: center;" >
+						<text>暂无结果</text>
+					</view>
 					<uni-grid :column="3" :showBorder="false" :highlight="false" :square="false" @change="tapItem">
 						<uni-grid-item v-for="(item, index) in nr" :index="index" :key="index">
 							<view class="grid-item-box">
@@ -45,15 +49,32 @@
 				allData: [],
 				fwlb: [],
 				nr: [],
-				qtfl:[]
+				search_nr:[],
+				qtfl:[],
+				inSearch:false,
+				sCount:0
 			};
 		},
 		mounted() {
 			this.getData();
 		},
 		methods: {
-			search(res) {
-				console.log('成功点击确认按钮内容为' + res.value);
+			search(e) {
+				this.sCount += 1
+				this.inSearch = true
+				uni.request({
+					url: 'http://124.93.196.45:10001/prod-api/api/service/list?serviceName='+e.value,
+					method: 'GET',
+					header: {
+						Authorization: uni.getStorageSync('token')
+					},
+					data: {},
+					success: res => {
+						this.nr = res.data.rows
+					},
+					fail: () => {},
+					complete: () => {}
+				});
 			},
 			getItem(item) {
 				this.showItem(item);
@@ -84,6 +105,7 @@
 				this.showItem('便民服务');
 			},
 			showItem(e) {
+				this.inSearch = false
 				if (e === '其他') {
 					uni.request({
 						url: 'http://124.93.196.45:10001/prod-api/api/service/list',
