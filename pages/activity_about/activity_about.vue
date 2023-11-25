@@ -10,6 +10,33 @@
 			<view class="body" style="padding: 20rpx;">
 				{{data.content}}
 			</view>
+			<view class="footer" style="height: 90rpx;">
+				<view>
+					<view style="float: left;" class="fpad">报名数：{{data.signupNum}}人</view>
+					<view style="float: right;" class="fpad">点赞数：{{data.likeNum}}</view>
+				</view>
+			</view>
+		</view>
+		<view class="comment">
+			<view class="showComment" style="margin: 0rpx 30rpx;text-align: center;">
+				<button size="mini" type="primary" @click="showComment()" v-if="commentSta==false">查看评论</button>
+			</view>
+			<view class="comment" v-if="commentSta==true">
+				<view>
+					<uni-section title="评论" :sub-title="comment.total+'条'" type="line"></uni-section>
+				</view>
+				<view>
+					<uni-list>
+						<uni-list-item :title="item.nickName" :note="item.content" :thumb="host+item.avatar"
+							v-for="(item,index) in shortData">123</uni-list-item>
+					</uni-list>
+				</view>
+				<view class="comment_list" style="margin: 30rpx;text-align: center;display: flex;">
+					<button size="mini" type="primary" @click="showMoreData()"
+						v-if=" visibleCount<comment.total">更多评论</button>
+					<button size="mini" type="primary" @click="closeComment()">收起评论</button>
+				</view>
+			</view>
 		</view>
 	</view>
 </template>
@@ -19,32 +46,78 @@
 		data() {
 			return {
 				host: 'http://124.93.196.45:10001',
-				data:[]
+				data: [],
+				comment: {
+					data: [],
+					total: 0
+				},
+				commentSta: false,
+				displayCount: 15,
+				visibleCount: 15
 			}
 		},
 		mounted() {
 			this.getData()
+			this.getComment()
 		},
 		methods: {
-			getData(){
+			getData() {
 				uni.request({
-					url: 'http://124.93.196.45:10001/prod-api/api/activity/activity/'+uni.getStorageSync("act_id"),
+					url: 'http://124.93.196.45:10001/prod-api/api/activity/activity/' + uni.getStorageSync(
+						"act_id"),
 					method: 'GET',
 					data: {},
 					header: {
 						Authorization: uni.getStorageSync("token")
 					},
 					success: res => {
+						console.log(uni.getStorageSync("act_id"))
 						this.data = res.data.data
 					},
 					fail: () => {},
 					complete: () => {}
 				});
+			},
+			getComment() {
+				uni.request({
+					url: 'http://124.93.196.45:10001/prod-api/api/activity/comment/list?activityId=' + uni
+						.getStorageSync("act_id"),
+					method: 'GET',
+					data: {},
+					header: {
+						Authorization: uni.getStorageSync("token")
+					},
+					success: res => {
+						console.log(res)
+						this.comment.total = res.data.total
+						this.comment.data = res.data.rows
+						console.log(this.comment.data)
+					},
+					fail: () => {},
+					complete: () => {}
+				});
+			},
+			showComment(){
+				this.commentSta = true
+			},
+			closeComment(){
+				this.commentSta = false
+			},
+			showMoreData() {
+				this.visibleCount += 30;
+				console.log(this.visibleCount)
+			},
+		},
+		computed: {
+			shortData() {
+				return this.comment.data.slice(0, this.visibleCount)
 			}
 		}
 	}
 </script>
 
 <style>
-
+	.fpad {
+		margin: 20rpx;
+	}
 </style>

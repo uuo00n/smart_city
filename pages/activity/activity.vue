@@ -2,7 +2,7 @@
 	<view>
 		<view class="pic-loop">
 			<swiper :indicator-dots="true" :autoplay="true" :interval="3000" circular="true">
-				<swiper-item v-for="(item,index) in ad">
+				<swiper-item v-for="(item,index) in ad" @click="goAdv(item)">
 					<image :src="host+item.advImg" mode=""></image>
 				</swiper-item>
 			</swiper>
@@ -111,6 +111,15 @@
 			goAbout(item){
 				console.log("item.id")
 				uni.setStorageSync("act_id",item.id)
+				uni.navigateTo({
+					url: '../activity_about/activity_about',
+					success: res => {},
+					fail: () => {},
+					complete: () => {}
+				});
+			},
+			goAdv(item){
+				uni.setStorageSync("act_id",item.targetId)
 				uni.navigateTo({
 					url: '../activity_about/activity_about',
 					success: res => {},

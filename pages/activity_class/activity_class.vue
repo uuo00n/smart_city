@@ -6,7 +6,7 @@
 		<view class="body">
 			<uni-list>
 				<uni-list-item :title="item.name" :note="'报名人数:'+item.signupNum+'人'+' '+'点赞数'+item.likeNum+'人'"
-					clickable v-for="(item,index) in atcList" @click="">
+					clickable v-for="(item,index) in atcList" @click="goAbout(item)">
 					<image :src="host+item.imgUrl" slot="header"
 						style="width: 230rpx; height: 150rpx; border-radius: 5px; margin-right: 10px;"></image>
 				</uni-list-item>
@@ -44,6 +44,16 @@
 					complete: () => {}
 				});
 			},
+			goAbout(item){
+				console.log("item.id")
+				uni.setStorageSync("act_id",item.id)
+				uni.navigateTo({
+					url: '../activity_about/activity_about',
+					success: res => {},
+					fail: () => {},
+					complete: () => {}
+				});
+			}
 		}
 	}
 </script>
