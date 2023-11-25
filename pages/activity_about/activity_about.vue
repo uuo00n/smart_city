@@ -8,7 +8,7 @@
 				<uni-section :title="data.name" :sub-title="'活动类别:'+data.categoryName" type="circle"></uni-section>
 			</view>
 			<view class="body" style="padding: 20rpx;">
-				{{data.content}}
+				<!-- {{data.content}} -->
 			</view>
 			<view class="footer" style="height: 90rpx;">
 				<view>
@@ -16,6 +16,9 @@
 					<view style="float: right;" class="fpad">点赞数：{{data.likeNum}}</view>
 				</view>
 			</view>
+		</view>
+		<view class="joinAct">
+			
 		</view>
 		<view class="comment">
 			<view class="showComment" style="margin: 0rpx 30rpx;text-align: center;">
@@ -36,6 +39,14 @@
 						v-if=" visibleCount<comment.total">更多评论</button>
 					<button size="mini" type="primary" @click="closeComment()">收起评论</button>
 				</view>
+				<br><br>
+			</view>
+		</view>
+		<view class="bottom_text" v-if="commentSta == true">
+			<view style="flex: 3;"><input type="text" value="" v-model="inputValue" ref="inputElement"
+					placeholder="请输入要提问的内容" @input="onKeyInput" /></view>
+			<view style="flex: 1; text-align: center;"><button class="mini-btn" type="primary" size="mini"
+					@click="sendCom">发送</button>
 			</view>
 		</view>
 	</view>
@@ -53,7 +64,8 @@
 				},
 				commentSta: false,
 				displayCount: 15,
-				visibleCount: 15
+				visibleCount: 15,
+				inputValue: '',
 			}
 		},
 		mounted() {
@@ -97,16 +109,45 @@
 					complete: () => {}
 				});
 			},
-			showComment(){
+			showComment() {
 				this.commentSta = true
 			},
-			closeComment(){
+			closeComment() {
 				this.commentSta = false
 			},
 			showMoreData() {
 				this.visibleCount += 30;
 				console.log(this.visibleCount)
 			},
+			onKeyInput: function(event) {
+				this.inputValue = event.target.value
+			},
+			sendCom() {
+				uni.request({
+					url: 'http://124.93.196.45:10001/prod-api/api/activity/comment',
+					method: 'POST',
+					header: {
+						Authorization: uni.getStorageSync("token")
+					},
+					data: {
+						"activityId": uni.getStorageSync("act_id"),
+						"content": this.inputValue
+					},
+					success: res => {
+						if (res.data.code === 200) {
+							this.inputValue = ''
+							this.getComment()
+							uni.showToast({
+								title: '评论成功',
+								position: 'bottom',
+								icon: 'none'
+							});
+						}
+					},
+					fail: () => {},
+					complete: () => {}
+				});
+			}
 		},
 		computed: {
 			shortData() {
@@ -119,5 +160,16 @@
 <style>
 	.fpad {
 		margin: 20rpx;
+	}
+
+	.bottom_text {
+		width: 100vw;
+		padding: 6px 12px;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		background: #ededf4;
+		position: fixed;
+		bottom: 0;
 	}
 </style>
