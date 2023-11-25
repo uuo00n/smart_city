@@ -35,11 +35,14 @@
 				<uni-section title="问诊案例" sub-title="" type="line"></uni-section>
 			</view>
 			<view>
-				<uni-list>
+				<uni-list v-if="case_list.length != 0">
 					<uni-list-item :title="item.doctor.name" :note="'案例描述:'+item.question" clickable v-for="(item,index) in case_list" @click="goAbout(item)">
 						<image :src="host+item.doctor.avatar" slot="header" style="width: 200rpx; height: 200rpx; border-radius: 5px; margin-right: 10px;"></image>
 					</uni-list-item>
 				</uni-list>
+				<view v-else style="text-align: center; background-color: white; height: 100rpx; padding: 100rpx;">
+					<text>暂无案例</text>
+				</view>
 			</view>
 		</view>
 	</view>
@@ -57,8 +60,8 @@
 		},
 		mounted() {
 			this.getPetData()
-			this.getCase()
 			this.getMyquestion()
+			this.getCase()
 		},
 		methods: {
 			getPetData() {
@@ -108,7 +111,7 @@
 			},
 			getCase(){
 				uni.request({
-					url: 'http://124.93.196.45:10001/prod-api/api/pet-hospital/inquiry/list?pageNum=1&pageSize=10',
+					url: 'http://124.93.196.45:10001/prod-api/api/pet-hospital/inquiry/list?pageNum=1&pageSize=3',
 					method: 'GET',
 					data: {},
 					header: {
@@ -116,6 +119,7 @@
 					},
 					success: res => {
 						this.case_list = res.data.rows
+						this.$forceUpdate();
 					},
 					fail: () => {},
 					complete: () => {}
@@ -131,6 +135,7 @@
 					data: {},
 					success: res => {
 						this.myQ = res.data.rows
+						this.$forceUpdate(); 
 					},
 					fail: () => {},
 					complete: () => {}

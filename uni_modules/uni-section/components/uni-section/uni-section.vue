@@ -110,7 +110,7 @@
 		border-top-left-radius: 50px;
 		border-bottom-left-radius: 50px;
 		border-bottom-right-radius: 50px;
-		background-color: $uni-text-color-disable;
+		background-color: #2979ff;
 	}
 
 	.uni-section__content {

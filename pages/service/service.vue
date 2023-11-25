@@ -152,6 +152,9 @@
 				if (sn === '宠物医院') {
 					url = '../pet_hospital/pet_hospital'
 				}
+				if (sn === '活动管理') {
+					url = '../activity/activity'
+				}
 				uni.navigateTo({
 					url: url
 				});

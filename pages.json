@@ -260,6 +260,29 @@
             }
             
         }
+        ,{
+            "path" : "pages/activity_class/activity_class",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "活动分类" ,
+                "enablePullDownRefresh": false,
+				"navigationBarBackgroundColor": "#2979ff",
+				"navigationBarTextStyle": "white"
+				
+            }
+            
+        }
+        ,{
+            "path" : "pages/activity_about/activity_about",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "活动详细",
+                "enablePullDownRefresh": false,
+				"navigationBarBackgroundColor": "#2979ff",
+				"navigationBarTextStyle": "white"
+            }
+            
+        }
     ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
