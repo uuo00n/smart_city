@@ -17,17 +17,18 @@
 				</view>
 			</view>
 		</view>
-		<view class="joinAct">
-			
+		<view class="joinAct" style="padding: 20rpx;">
+			<button type="primary" @click="joinAct" v-if="isSignup === false">报名活动</button>
+			<button type="primary" disabled="true" v-else>已报名</button>
 		</view>
 		<view class="comment">
+			<view>
+				<uni-section title="评论" :sub-title="comment.total+'条'" type="line"></uni-section>
+			</view>
 			<view class="showComment" style="margin: 0rpx 30rpx;text-align: center;">
 				<button size="mini" type="primary" @click="showComment()" v-if="commentSta==false">查看评论</button>
 			</view>
 			<view class="comment" v-if="commentSta==true">
-				<view>
-					<uni-section title="评论" :sub-title="comment.total+'条'" type="line"></uni-section>
-				</view>
 				<view>
 					<uni-list>
 						<uni-list-item :title="item.nickName" :note="item.content" :thumb="host+item.avatar"
@@ -66,11 +67,13 @@
 				displayCount: 15,
 				visibleCount: 15,
 				inputValue: '',
+				isSignup: true
 			}
 		},
 		mounted() {
 			this.getData()
 			this.getComment()
+			this.getSign()
 		},
 		methods: {
 			getData() {
@@ -100,10 +103,8 @@
 						Authorization: uni.getStorageSync("token")
 					},
 					success: res => {
-						console.log(res)
 						this.comment.total = res.data.total
 						this.comment.data = res.data.rows
-						console.log(this.comment.data)
 					},
 					fail: () => {},
 					complete: () => {}
@@ -117,7 +118,6 @@
 			},
 			showMoreData() {
 				this.visibleCount += 30;
-				console.log(this.visibleCount)
 			},
 			onKeyInput: function(event) {
 				this.inputValue = event.target.value
@@ -142,6 +142,46 @@
 								position: 'bottom',
 								icon: 'none'
 							});
+						}
+					},
+					fail: () => {},
+					complete: () => {}
+				});
+			},
+			getSign() {
+				uni.request({
+					url: 'http://124.93.196.45:10001/prod-api/api/activity/signup/check?activityId=' + uni
+						.getStorageSync("act_id"),
+					method: 'GET',
+					header: {
+						Authorization: uni.getStorageSync("token")
+					},
+					data: {},
+					success: res => {
+						this.isSignup = res.data.isSignup
+					},
+					fail: () => {},
+					complete: () => {}
+				});
+			},
+			joinAct() {
+				uni.request({
+					url: 'http://124.93.196.45:10001/prod-api/api/activity/signup',
+					method: 'POST',
+					header: {
+						Authorization: uni.getStorageSync("token")
+					},
+					data: {
+						"activityId": uni.getStorageSync("act_id")
+					},
+					success: res => {
+						if (res.data.code === 200) {
+							uni.showToast({
+								title: '报名成功',
+								position: 'bottom',
+								icon: 'none'
+							});
+							this.getSign()
 						}
 					},
 					fail: () => {},
