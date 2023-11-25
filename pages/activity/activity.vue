@@ -12,7 +12,7 @@
 				<uni-section title="活动分类" sub-title="" type="line"></uni-section>
 			</view>
 			<view>
-				<uni-grid :column="3" :showBorder="false" :highlight="false" :square="false" @change="">
+				<uni-grid :column="3" :showBorder="false" :highlight="false" :square="false" @change="goClass">
 					<uni-grid-item v-for="(item, index) in atcClass" :index="index" :key="index">
 						<view class="grid-item-box">
 							<text class="text">{{ item.name }}</text>
@@ -92,6 +92,15 @@
 					success: res => {
 						this.atcList = res.data.rows
 					},
+					fail: () => {},
+					complete: () => {}
+				});
+			},
+			goClass(e){
+				uni.setStorageSync("actClass",this.atcClass[e.detail.index])
+				uni.navigateTo({
+					url: '../activity_class/activity_class',
+					success: res => {},
 					fail: () => {},
 					complete: () => {}
 				});
