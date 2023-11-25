@@ -140,6 +140,9 @@
 			tapItem(e) {
 				let sn = this.nr[e.detail.index].serviceName
 				let url = ''
+				if (sn === '停哪儿') {
+					url = '../park/park'
+				}
 				if (sn === '找工作') {
 					url = '../job/job'
 				}
