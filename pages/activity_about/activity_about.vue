@@ -8,7 +8,7 @@
 				<uni-section :title="data.name" :sub-title="'活动类别:'+data.categoryName" type="circle"></uni-section>
 			</view>
 			<view class="body" style="padding: 20rpx;">
-				<!-- {{data.content}} -->
+				{{data.content}}
 			</view>
 			<view class="footer" style="height: 90rpx;">
 				<view>
@@ -40,7 +40,20 @@
 						v-if=" visibleCount<comment.total">更多评论</button>
 					<button size="mini" type="primary" @click="closeComment()">收起评论</button>
 				</view>
-				<br><br>
+			</view>
+		</view>
+		<view class="good_atc">
+			<view>
+				<uni-section title="活动推荐" sub-title="" type="line"></uni-section>
+			</view>
+			<view>
+				<uni-list>
+					<uni-list-item :title="item.name" :note="'报名人数:'+item.signupNum+'人'+' '+'点赞数'+item.likeNum+'人'"
+						clickable v-for="(item,index) in other" @click="goOuther(item)">
+						<image :src="host+item.imgUrl" slot="header"
+							style="width: 230rpx; height: 150rpx; border-radius: 5px; margin-right: 10px;"></image>
+					</uni-list-item>
+				</uni-list>
 			</view>
 		</view>
 		<view class="bottom_text" v-if="commentSta == true">
@@ -67,13 +80,15 @@
 				displayCount: 15,
 				visibleCount: 15,
 				inputValue: '',
-				isSignup: true
+				isSignup: true,
+				other: []
 			}
 		},
 		mounted() {
 			this.getData()
 			this.getComment()
 			this.getSign()
+			this.getOther()
 		},
 		methods: {
 			getData() {
@@ -184,6 +199,31 @@
 							this.getSign()
 						}
 					},
+					fail: () => {},
+					complete: () => {}
+				});
+			},
+			getOther() {
+				uni.request({
+					url: 'http://124.93.196.45:10001/prod-api/api/activity/activity/list?recommend=Y&pageNum=1&pageSize=3',
+					method: 'GET',
+					data: {},
+					header: {
+						Authorization: uni.getStorageSync("token")
+					},
+					success: res => {
+						console.log(res)
+						this.other = res.data.rows
+					},
+					fail: () => {},
+					complete: () => {}
+				});
+			},
+			goOuther(item) {
+				uni.setStorageSync("act_id", item.id)
+				uni.redirectTo({
+					url: '../activity_about/activity_about',
+					success: res => {},
 					fail: () => {},
 					complete: () => {}
 				});
