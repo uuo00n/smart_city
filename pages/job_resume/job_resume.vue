@@ -176,7 +176,7 @@
 						this.userId = res.data.user.userId
 						this.userInfo = res.data.user
 						// console.log(this.token)
-						console.log(this.userInfo)
+						// console.log(this.userInfo)
 						// console.log(this.userId)
 						uni.request({
 							url: 'http://124.93.196.45:10001/prod-api/api/job/resume/queryResumeByUserId/' +
