@@ -17,15 +17,6 @@
 			}
 
 		}, {
-			"path": "pages/test/test",
-			"style": {
-				"navigationBarTitleText": "",
-				"enablePullDownRefresh": false,
-				"navigationBarBackgroundColor": "#2979ff",
-				"navigationBarTextStyle": "white"
-			}
-
-		}, {
 			"path": "pages/service/service",
 			"style": {
 				"navigationBarTitleText": "全部服务",
@@ -277,6 +268,28 @@
             "style" :                                                                                    
             {
                 "navigationBarTitleText": "活动详细",
+                "enablePullDownRefresh": false,
+				"navigationBarBackgroundColor": "#2979ff",
+				"navigationBarTextStyle": "white"
+            }
+            
+        }
+        ,{
+            "path" : "pages/pay/pay",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "生活缴费",
+                "enablePullDownRefresh": false,
+				"navigationBarBackgroundColor": "#2979ff",
+				"navigationBarTextStyle": "white"
+            }
+            
+        }
+        ,{
+            "path" : "pages/pay_phone/pay_phone",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "手机缴费",
                 "enablePullDownRefresh": false,
 				"navigationBarBackgroundColor": "#2979ff",
 				"navigationBarTextStyle": "white"

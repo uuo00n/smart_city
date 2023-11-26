@@ -158,6 +158,9 @@
 				if (sn === '活动管理') {
 					url = '../activity/activity'
 				}
+				if (sn === '生活缴费') {
+					url = '../pay/pay'
+				}
 				uni.navigateTo({
 					url: url
 				});
