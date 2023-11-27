@@ -161,6 +161,9 @@
 				if (sn === '生活缴费') {
 					url = '../pay/pay'
 				}
+				if (sn === '看电影') {
+					url = '../movie/movie'
+				}
 				uni.navigateTo({
 					url: url
 				});

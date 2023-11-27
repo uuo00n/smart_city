@@ -296,6 +296,28 @@
             }
             
         }
+        ,{
+            "path" : "pages/movie/movie",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "看电影",
+                "enablePullDownRefresh": false,
+				"navigationBarBackgroundColor": "#2979ff",
+				"navigationBarTextStyle": "white"
+            }
+            
+        }
+        ,{
+            "path" : "pages/movie_about/movie_about",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "影片详细",
+                "enablePullDownRefresh": false,
+				"navigationBarBackgroundColor": "#2979ff",
+				"navigationBarTextStyle": "white"
+            }
+            
+        }
     ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
