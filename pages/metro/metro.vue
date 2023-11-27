@@ -3,6 +3,9 @@
 		<view class="header">
 			<uni-section :title="'当前位置：'+address" sub-title="" type="circle"></uni-section>
 		</view>
+		<view>
+			<uni-section title="最近车次" :sub-title="'离我最近的车站：'+address" type="line"></uni-section>
+		</view>
 		<view class="body">
 			<uni-card :title="item.lineName" :extra="item.reachTime === 0 ? '已到站' : '到达本站时长：'+item.reachTime+'分钟'"
 				v-for="(item,index) in address_met" @click="goAbout(item)">
@@ -37,7 +40,6 @@
 					data: {},
 					success: res => {
 						this.address_met = res.data.data
-						console.log(this.address_met)
 					},
 					fail: () => {},
 					complete: () => {}

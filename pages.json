@@ -325,6 +325,27 @@
                 "navigationBarTitleText": "地铁详细",
                 "enablePullDownRefresh": false,
 				"navigationBarBackgroundColor": "#2979ff",
+				"navigationBarTextStyle": "white",
+				"app-plus": {
+					"titleNView": {
+						"buttons": [
+							{
+								"text": "全部路线",
+								"fontSize": "15px"
+							}
+						]
+					}
+				}
+            }
+            
+        }
+        ,{
+            "path" : "pages/metro_all/metro_all",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "全部路线",
+                "enablePullDownRefresh": false,
+				"navigationBarBackgroundColor": "#2979ff",
 				"navigationBarTextStyle": "white"
             }
             

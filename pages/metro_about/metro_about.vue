@@ -14,14 +14,17 @@
 			</view>
 			<view class="Station">
 				<uni-section :title="'当前位置：'+thisStation.currentName" :sub-title="'列车运行到站：'+allStation.runStationsName"
-					type="circle" ></uni-section>
+					type="circle">
+				</uni-section>
+			</view>
+			<view style="padding: 30rpx;">
+				<h4>剩余时间：{{allStation.remainingTime}}分钟</h4>
+				<h4>间隔：{{allStation.stationsNumber}}站</h4>
 			</view>
 		</view>
-		<view style="margin: 50rpx;">
-			<uni-steps
-					:options="newStation"
-					:active="find(allStation.runStationsName)" active-color="blue"
-					direction="column"/>
+		<view style="margin:10rpx 50rpx;">
+			<uni-steps :options="newStation" :active="find(allStation.runStationsName)" active-color="blue"
+				direction="column" />
 			</uni-card>
 		</view>
 	</view>
@@ -33,7 +36,7 @@
 			return {
 				thisStation: [],
 				allStation: [],
-				newStation:[]
+				newStation: []
 			}
 		},
 		mounted() {
@@ -50,18 +53,27 @@
 						Authorization: uni.getStorageSync("token")
 					},
 					success: res => {
-						console.log(res)
 						this.allStation = res.data.data
-						this.newStation = this.allStation.metroStepList.map(item =>({title:item.name}))
+						this.newStation = this.allStation.metroStepList.map(item => ({
+							title: item.name
+						}))
 					},
 					fail: () => {},
 					complete: () => {}
 				});
 			},
-			find(e){
+			find(e) {
 				return this.newStation.findIndex(item => item.title === e)
 			}
-		}
+		},
+		onNavigationBarButtonTap(e) {
+			uni.navigateTo({
+				url: '../metro_all/metro_all',
+				success: res => {},
+				fail: () => {},
+				complete: () => {}
+			});
+		},
 	}
 </script>
 
