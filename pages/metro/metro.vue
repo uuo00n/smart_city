@@ -5,7 +5,7 @@
 		</view>
 		<view class="body">
 			<uni-card :title="item.lineName" :extra="item.reachTime === 0 ? '已到站' : '到达本站时长：'+item.reachTime+'分钟'"
-				v-for="(item,index) in address_met">
+				v-for="(item,index) in address_met" @click="goAbout(item)">
 				<uni-steps
 					:options="[{title: item.preStep.name}, {title: item.currentName}, {title: item.nextStep.name}]"
 					:active="1" active-color="blue" />
@@ -39,6 +39,15 @@
 						this.address_met = res.data.data
 						console.log(this.address_met)
 					},
+					fail: () => {},
+					complete: () => {}
+				});
+			},
+			goAbout(item){
+				uni.setStorageSync("met_msg",item)
+				uni.navigateTo({
+					url: '../metro_about/metro_about',
+					success: res => {},
 					fail: () => {},
 					complete: () => {}
 				});

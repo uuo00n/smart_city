@@ -318,6 +318,17 @@
             }
             
         }
+        ,{
+            "path" : "pages/metro_about/metro_about",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "地铁详细",
+                "enablePullDownRefresh": false,
+				"navigationBarBackgroundColor": "#2979ff",
+				"navigationBarTextStyle": "white"
+            }
+            
+        }
     ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
