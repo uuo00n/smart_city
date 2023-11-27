@@ -24,7 +24,7 @@
 			</view>
 			<view v-else>
 				<uni-list>
-					<uni-list-item v-for="(item,index) in scList" :key="index">
+					<uni-list-item v-for="(item,index) in scList" :key="index" clickable @click="goAbout(item)">
 						<view slot="body">
 							<view>{{item.name}}</view>
 							<view style="font-size: 25rpx;">
