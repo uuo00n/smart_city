@@ -140,6 +140,9 @@
 			tapItem(e) {
 				let sn = this.nr[e.detail.index].serviceName
 				let url = ''
+				if (sn === '城市地铁') {
+					url = '../metro/metro'
+				}
 				if (sn === '停哪儿') {
 					url = '../park/park'
 				}
