@@ -167,6 +167,9 @@
 				if (sn === '看电影') {
 					url = '../movie/movie'
 				}
+				if (sn === '智慧巴士') {
+					url = '../bus/bus'
+				}
 				uni.navigateTo({
 					url: url
 				});

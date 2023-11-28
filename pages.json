@@ -350,6 +350,28 @@
             }
             
         }
+        ,{
+            "path" : "pages/clinic/clinic",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "门诊预约",
+                "enablePullDownRefresh": false,
+				"navigationBarBackgroundColor": "#2979ff",
+				"navigationBarTextStyle": "white"
+            }
+            
+        }
+        ,{
+            "path" : "pages/bus/bus",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "智慧巴士",
+                "enablePullDownRefresh": false,
+				"navigationBarBackgroundColor": "#2979ff",
+				"navigationBarTextStyle": "white"
+            }
+            
+        }
     ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
