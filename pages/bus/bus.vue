@@ -1,7 +1,8 @@
 <template>
 	<view>
-		<view>
-			<uni-card :title="item.name" :extra="'价格:'+item.price+'元'" v-for="(item,index) in busLine">
+		<view class="busList">
+			<uni-card :title="item.name" :extra="'价格:'+item.price+'元'" v-for="(item,index) in busLine"
+				@click="goLine(item)">
 				<view style="display: flex;">
 					<view style="padding: 30rpx; flex: 1;">
 						<h4>始发站：{{item.first}}</h4>
@@ -15,8 +16,7 @@
 				<uni-collapse @change="getBusStation(item.id)" accordion="true">
 					<uni-collapse-item title="路线图">
 						<view class="content">
-							<uni-steps :options="newStation" :active="0" active-color="blue"
-								direction="column" />
+							<uni-steps :options="newStation" :active="0" active-color="blue" direction="column" />
 						</view>
 					</uni-collapse-item>
 				</uni-collapse>
@@ -31,7 +31,7 @@
 			return {
 				busStationList: [],
 				busLine: [],
-				newStation:[]
+				newStation: []
 			}
 		},
 		mounted() {
@@ -53,9 +53,9 @@
 					complete: () => {}
 				});
 			},
-			getBusStation(id){
+			getBusStation(id) {
 				uni.request({
-					url: 'http://124.93.196.45:10001/prod-api/api/bus/stop/list?linesId='+id,
+					url: 'http://124.93.196.45:10001/prod-api/api/bus/stop/list?linesId=' + id,
 					method: 'GET',
 					header: {
 						Authorization: uni.getStorageSync('token')
@@ -70,11 +70,20 @@
 					fail: () => {},
 					complete: () => {}
 				});
+			},
+			goLine(item) {
+				uni.setStorageSync("busLine", item)
+				uni.navigateTo({
+					url: '../bus_newline/bus_newline',
+					success: res => {},
+					fail: () => {},
+					complete: () => {}
+				});
 			}
 		}
 	}
 </script>
 
 <style>
-
+	
 </style>

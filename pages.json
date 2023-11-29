@@ -372,6 +372,48 @@
             }
             
         }
+        ,{
+            "path" : "pages/bus_newline/bus_newline",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "定制班车",
+                "enablePullDownRefresh": false,
+				"navigationBarBackgroundColor": "#2979ff",
+				"navigationBarTextStyle": "white"
+            }
+            
+        }
+        ,{
+            "path" : "pages/bus_date/bus_date",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "请选择日期",
+                "enablePullDownRefresh": false,
+				"navigationBarBackgroundColor": "#2979ff",
+				"navigationBarTextStyle": "white"
+            }
+            
+        }
+        ,{
+            "path" : "pages/bus_passenger/bus_passenger",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "乘客信息",
+                "enablePullDownRefresh": false,
+				"navigationBarBackgroundColor": "#2979ff",
+				"navigationBarTextStyle": "white"
+            }
+            
+        }
+        ,{
+            "path" : "pages/bus_send/bus_send",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+            
+        }
     ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
