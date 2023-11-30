@@ -153,7 +153,7 @@
 					url = '../house/house'
 				}
 				if (sn === '智慧交管') {
-					url = '../traffic/traffic'
+					url = '../traffic_search/traffic_search'
 				}
 				if (sn === '宠物医院') {
 					url = '../pet_hospital/pet_hospital'
