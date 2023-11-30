@@ -416,6 +416,17 @@
             }
             
         }
+        ,{
+            "path" : "pages/gov/gov",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "政府服务热线",
+                "enablePullDownRefresh": false,
+				"navigationBarBackgroundColor": "#2979ff",
+				"navigationBarTextStyle": "white"
+            }
+            
+        }
     ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",

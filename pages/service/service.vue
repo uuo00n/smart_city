@@ -170,6 +170,9 @@
 				if (sn === '智慧巴士') {
 					url = '../bus/bus'
 				}
+				if (sn === '政府服务热线') {
+					url = '../gov/gov'
+				}
 				uni.navigateTo({
 					url: url
 				});
