@@ -97,8 +97,8 @@
 					url: 'http://124.93.196.45:10001/prod-api/api/login',
 					method: 'POST',
 					data: {
-						username: 'jb',
-						password: 'jb'
+						username: 'huangjb',
+						password: 'huang'
 					},
 					success: (res) => {
 						uni.setStorageSync('token', res.data.token);

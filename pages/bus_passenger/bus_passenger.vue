@@ -17,14 +17,14 @@
 			</view>
 			<view style="display: flex;padding: 15rpx;">
 				<view style="flex: 2;">
-					<uni-data-select v-model="start" :localdata="steps" @change="getStart(start)" placeholder="请选择始发站"
+					<uni-data-select :value="start" :localdata="steps" @change="getStart" placeholder="请选择始发站"
 						:clear="false"></uni-data-select>
 				</view>
 				<view style="flex: 1; text-align: center;">
 					→
 				</view>
 				<view style="flex: 2;">
-					<uni-data-select v-model="end" :localdata="steps" @change="getEnd(end)" placeholder="请选择终点站"
+					<uni-data-select :value="end" :localdata="steps" @change="getEnd" placeholder="请选择终点站"
 						:clear="false"></uni-data-select>
 				</view>
 			</view>
@@ -76,10 +76,12 @@
 				});
 			},
 			getStart(e) {
-				this.startStep = this.steps[e].text
+				const index = e - 1
+				this.startStep = this.steps[index].text
 			},
 			getEnd(e) {
-				this.endStep = this.steps[e].text
+				const index = e - 1
+				this.endStep = this.steps[index].text
 			},
 			goSend() {
 				uni.setStorageSync("userName", this.Uname)
@@ -88,12 +90,12 @@
 				uni.setStorageSync("end", this.endStep)
 				console.log(uni.getStorageSync("start"))
 				console.log(uni.getStorageSync("end"))
-				// uni.navigateTo({
-				// 	url: '../bus_send/bus_send',
-				// 	success: res => {},
-				// 	fail: () => {},
-				// 	complete: () => {}
-				// });
+				uni.navigateTo({
+					url: '../bus_send/bus_send',
+					success: res => {},
+					fail: () => {},
+					complete: () => {}
+				});
 			}
 		}
 	}
