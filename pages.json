@@ -449,6 +449,17 @@
             }
             
         }
+        ,{
+            "path" : "pages/lawyer/lawyer",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "律师咨询",
+                "enablePullDownRefresh": false,
+				"navigationBarBackgroundColor": "#2979ff",
+				"navigationBarTextStyle": "white"
+            }
+            
+        }
     ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
