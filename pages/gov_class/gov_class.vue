@@ -6,7 +6,7 @@
 			</view>
 			<view>
 				<uni-list v-if="classList.length != 0">
-					<uni-list-item v-for="(item,index) in classList">
+					<uni-list-item v-for="(item,index) in classList" clickable @click="goAbout(item)">
 						<view slot="body">
 							<view>{{item.title}}</view>
 							<view style="font-size: 25rpx;">
@@ -62,6 +62,15 @@
 			goCreate(){
 				uni.redirectTo({
 					url: '../gov_create/gov_create'
+				});
+			},
+			goAbout(e){
+				uni.setStorageSync("gov_about",e)
+				uni.navigateTo({
+					url: '../gov_about/gov_about',
+					success: res => {},
+					fail: () => {},
+					complete: () => {}
 				});
 			}
 		}

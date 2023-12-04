@@ -460,6 +460,17 @@
             }
             
         }
+        ,{
+            "path" : "pages/gov_about/gov_about",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "诉求详细",
+                "enablePullDownRefresh": false,
+				"navigationBarBackgroundColor": "#2979ff",
+				"navigationBarTextStyle": "white"
+            }
+            
+        }
     ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
