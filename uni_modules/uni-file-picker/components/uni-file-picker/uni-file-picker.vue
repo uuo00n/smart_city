@@ -657,7 +657,7 @@ export default {
 .icon-add {
 	width: 50px;
 	height: 5px;
-	background-color: #f1f1f1;
+	background-color: #676767;
 	border-radius: 2px;
 }
 

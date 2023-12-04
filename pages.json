@@ -427,6 +427,28 @@
             }
             
         }
+        ,{
+            "path" : "pages/gov_class/gov_class",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "诉求列表",
+                "enablePullDownRefresh": false,
+				"navigationBarBackgroundColor": "#2979ff",
+				"navigationBarTextStyle": "white"
+            }
+            
+        }
+        ,{
+            "path" : "pages/gov_create/gov_create",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "诉求创建",
+                "enablePullDownRefresh": false,
+				"navigationBarBackgroundColor": "#2979ff",
+				"navigationBarTextStyle": "white"
+            }
+            
+        }
     ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
