@@ -131,7 +131,6 @@
 						},
 						success: res => {
 							this.scList = res.data.rows
-							console.log(res)
 						},
 						fail: () => {},
 						complete: () => {}

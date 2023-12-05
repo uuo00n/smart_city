@@ -471,6 +471,39 @@
             }
             
         }
+        ,{
+            "path" : "pages/lawyer_search/lawyer_search",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "搜索结果",
+                "enablePullDownRefresh": false,
+				"navigationBarBackgroundColor": "#2979ff",
+				"navigationBarTextStyle": "white"
+            }
+            
+        }
+        ,{
+            "path" : "pages/lawyer_about/lawyer_about",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "律师详细",
+                "enablePullDownRefresh": false,
+				"navigationBarBackgroundColor": "#2979ff",
+				"navigationBarTextStyle": "white"
+            }
+            
+        }
+        ,{
+            "path" : "pages/lawyer_class/lawyer_class",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "法律专长",
+                "enablePullDownRefresh": false,
+				"navigationBarBackgroundColor": "#2979ff",
+				"navigationBarTextStyle": "white"
+            }
+            
+        }
     ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
