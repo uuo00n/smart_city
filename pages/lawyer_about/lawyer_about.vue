@@ -161,7 +161,7 @@
 			},
 			goQs(){
 				uni.navigateTo({
-					url: '../lawyer_consultation/lawyer_consultation',
+					url: '../lawyer_create/lawyer_create',
 					success: res => {},
 					fail: () => {},
 					complete: () => {}

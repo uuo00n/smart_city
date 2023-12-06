@@ -54,6 +54,7 @@
 					data: {},
 					success: res => {
 						this.classList = res.data.rows
+						console.log(res)
 					},
 					fail: () => {},
 					complete: () => {}

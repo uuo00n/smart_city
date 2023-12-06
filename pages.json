@@ -505,10 +505,10 @@
             
         }
         ,{
-            "path" : "pages/lawyer_consultation/lawyer_consultation",
+            "path" : "pages/lawyer_create/lawyer_create",
             "style" :                                                                                    
             {
-                "navigationBarTitleText": "律师咨询",
+                "navigationBarTitleText": "法律咨询",
                 "enablePullDownRefresh": false,
 				"navigationBarBackgroundColor": "#2979ff",
 				"navigationBarTextStyle": "white"

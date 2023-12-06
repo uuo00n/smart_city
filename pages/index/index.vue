@@ -34,7 +34,7 @@
 			<uni-section title="热门主题" sub-title="" type="line"></uni-section>
 		</view>
 		<view>
-			<uni-grid :column="2" :showBorder="false" :highlight="false" :square="false" @change="">
+			<uni-grid :column="2" :showBorder="false" :highlight="false" :square="false" @change="tapSer">
 				<uni-grid-item v-for="(item, index) in zhuti.datas" :index="index" :key="index">
 					<view class="grid-item-box titem">
 						<image :src="baseURL + item.imgUrl" mode="" class="image"></image>
@@ -191,6 +191,16 @@
 				}
 				if (item.detail.index === 6) {
 					url = "../metro/metro"
+				}
+				uni.navigateTo({
+					url: url
+				});
+			},
+			tapSer(item){
+				console.log(item.detail.index)
+				let url= '';
+				if(item.detail.index === 0){
+					url = "../lawyer/lawyer"
 				}
 				uni.navigateTo({
 					url: url
