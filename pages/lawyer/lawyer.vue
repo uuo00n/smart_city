@@ -83,7 +83,7 @@
 						<image :src="host+item.avatarUrl" slot="header"
 							style="width: 150rpx; height: 200rpx; border-radius: 5px; margin-right: 10px;"></image>
 						<view slot="footer"  style="display: flex;justify-items: flex-end; align-items: flex-end;">
-							<button type="primary" size="mini">咨询</button>
+							<button type="primary" size="mini" @click="goAbout(item)">咨询</button>
 						</view>
 					</uni-list-item>
 				</uni-list>
@@ -194,6 +194,15 @@
 				uni.setStorageSync("lawyerVal",e.value)
 				uni.navigateTo({
 					url: '../lawyer_search/lawyer_search',
+					success: res => {},
+					fail: () => {},
+					complete: () => {}
+				});
+			},
+			goAbout(e){
+				uni.setStorageSync("lawyer_msg",e)
+				uni.navigateTo({
+					url: '../lawyer_about/lawyer_about',
 					success: res => {},
 					fail: () => {},
 					complete: () => {}
