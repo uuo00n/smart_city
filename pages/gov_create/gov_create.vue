@@ -3,7 +3,7 @@
 		<view>
 			<uni-section title="诉求创建" sub-title="" type="circle"></uni-section>
 		</view>
-		<view>
+		<view style="padding: 40rpx;">
 			<uni-forms ref="baseForm" v-model="formData">
 				<uni-forms-item label="诉求标题">
 					<uni-easyinput v-model="formData.title" placeholder="请输入诉求标题" />
@@ -16,7 +16,7 @@
 				</uni-forms-item>
 			</uni-forms>
 		</view>
-		<view style="padding: 20rpx;">
+		<view style="padding: 40rpx;">
 			<view class="example-body">
 				<uni-file-picker limit="1" title="请选择需要上传的图片" @success="sendImg"></uni-file-picker>
 			</view>
@@ -36,8 +36,9 @@
 					title: '',
 					content: '',
 					undertaker: '',
-					imgUrl: ''
-				}
+					imgUrl: '',
+				},
+				IMGsj: [],
 			}
 		},
 		mounted() {
@@ -48,18 +49,28 @@
 				this.formData.appealCategoryId = uni.getStorageSync("gov_class").id
 			},
 			sendImg(e) {
-				console.log(e.tempFiles)
-				// uni.uploadFile({
-				// 	url: 'http://124.93.196.45:10001/prod-api/common/upload', 
-				// 	filePath: tempFilePaths[0],
-				// 	name: 'file',
-				// 	formData: {
-				// 		'user': 'test'
-				// 	},
-				// 	success: (uploadFileRes) => {
-				// 		console.log(uploadFileRes.data);
-				// 	}
-				// });
+				const TF = e.tempFiles[0];
+				console.log(TF)
+				uni.uploadFile({
+					url: 'http://124.93.196.45:10001/prod-api/common/upload',
+					header: {
+						Authorization: uni.getStorageSync("token")
+					},
+					filePath: TF.image.location,
+					success: (res) => {
+						if(res.statusCode === 200){
+							this.IMGsj = JSON.parse(res.data)
+							this.formData.imgUrl = "/prod-api" + this.IMGsj.fileName
+						}else{
+							uni.showToast({
+								title: '上传图片失败 ',
+								position: 'bottom',
+								icon: 'none',
+								duration: 3000
+							});
+						}
+					}
+				})
 			},
 			send() {
 				console.log(this.formData)
