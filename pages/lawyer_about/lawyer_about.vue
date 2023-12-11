@@ -9,6 +9,7 @@
 					<image :src="host+lawyerData.avatarUrl" mode="" class="pic"></image>
 				</view>
 				<view style="flex: 2; padding: 70rpx;">
+					<view>姓名：{{lawyerData.name}}</view>
 					<view>法律专长：{{lawyerData.legalExpertiseName}}</view>
 					<view>咨询人数：{{lawyerData.serviceTimes}}人</view>
 					<view>服务次数：{{lawyerData.favorableCount}}次</view>
@@ -78,7 +79,7 @@
 				ItemClass: ['服务方式', '用户评论'],
 				current: 0,
 				secList: [],
-				likeState : false
+				likeState: false
 			}
 		},
 		mounted() {
@@ -123,10 +124,10 @@
 					complete: () => {}
 				});
 			},
-			like(item){
-				if(item.myLikeState == false){
+			like(item) {
+				if (item.myLikeState == false) {
 					this.likeState = true
-				}else{
+				} else {
 					this.likeState = false
 				}
 				uni.request({
@@ -140,17 +141,17 @@
 						"like": this.likeState
 					},
 					success: res => {
-						if(this.likeState){
+						if (this.likeState) {
 							uni.showToast({
 								title: '点赞成功',
-								position:"bottom",
-								icon:"none"
+								position: "bottom",
+								icon: "none"
 							});
-						}else{
+						} else {
 							uni.showToast({
 								title: '取消点赞',
-								position:"bottom",
-								icon:"none"
+								position: "bottom",
+								icon: "none"
 							});
 						}
 						this.getSecList()
@@ -159,7 +160,7 @@
 					complete: () => {}
 				});
 			},
-			goQs(){
+			goQs() {
 				uni.navigateTo({
 					url: '../lawyer_create/lawyer_create',
 					success: res => {},

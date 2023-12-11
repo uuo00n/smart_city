@@ -55,7 +55,9 @@
 			</view>
 			<view>
 				<view v-if="myLegalList.length != 0">
-
+					<uni-list>
+						<uni-list-item :title="item.content" note="" :thumb="host+item.imageUrls" thumbSize="lg" v-for="(item,index) in myLegalList" @click="goMyList" clickable></uni-list-item>
+					</uni-list>
 				</view>
 				<view v-else style="text-align: center;margin: 100rpx;">
 					<text>暂无查询结果</text>
@@ -171,6 +173,14 @@
 						this.myLegalList = res.data.rows
 						console.log(this.myLegalList)
 					},
+					fail: () => {},
+					complete: () => {}
+				});
+			},
+			goMyList(){
+				uni.navigateTo({
+					url: '../lawyer_my_llist/lawyer_my_llist',
+					success: res => {},
 					fail: () => {},
 					complete: () => {}
 				});

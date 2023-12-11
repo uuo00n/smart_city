@@ -32,7 +32,7 @@
 		</uni-popup>
 		<view>
 			<view>
-				<uni-section :title="classData.name+'专长'" sub-title="" type="line"></uni-section>
+				<uni-section title="专长列表" sub-title="" type="line"></uni-section>
 			</view>
 			<view>
 				<uni-list>
