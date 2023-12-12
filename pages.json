@@ -527,6 +527,17 @@
             }
             
         }
+        ,{
+            "path" : "pages/lawyer_my_about/lawyer_my_about",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "我的咨询详细",
+                "enablePullDownRefresh": false,
+				"navigationBarBackgroundColor": "#2979ff",
+				"navigationBarTextStyle": "white"
+            }
+            
+        }
     ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",

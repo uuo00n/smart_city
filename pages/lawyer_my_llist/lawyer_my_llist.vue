@@ -13,22 +13,27 @@
 			<view>
 				<uni-section title="筛选结果" sub-title="" type="line"></uni-section>
 			</view>
-			<view>
+			<view v-if="MyList.length != 0">
 				<uni-list>
-					<uni-list-item title="" note="" v-for="(item,index) in MyList" @click="get">
-						<view slot="body" style="margin-right: 20%;">
+					<uni-list-item title="" note="" v-for="(item,index) in MyList" @click="getListItem(item)" clickable>
+						<view slot="body">
 							<view>
 								<view style="font-size: 25rpx;">
 									<view>律师姓名：{{item.lawyerName}}</view>
-									<view>咨询类型：{{item.legalExpertiseName}}</view>
+									<view>法律专长：{{item.legalExpertiseName}}</view>
 									<view>咨询内容：{{item.content}}</view>
 									<view>受理状态：<text v-if="item.state == 0">未受理</text><text v-else>已完成</text></view>
 									<view>提交时间：{{item.createTime.slice(0,10)}}</view>
 								</view>
 							</view>
 						</view>
+						<image :src="host+item.imageUrls" slot="header"
+							style="width: 200rpx; height: 200rpx; border-radius: 5px; margin-right: 10px;"></image>
 					</uni-list-item>
 				</uni-list>
+			</view>
+			<view v-else style="text-align: center;">
+				<text>暂无查询结果</text>
 			</view>
 		</view>
 	</view>
@@ -65,7 +70,7 @@
 					data: {},
 					success: res => {
 						this.MyList = res.data.rows
-						console.log(this.MyList)
+						console.log(res)
 					},
 					fail: () => {},
 					complete: () => {}
@@ -88,12 +93,24 @@
 				});
 			},
 			getListItem(e){
-				console.log(e)
+				uni.setStorageSync("law_data",e);
+				uni.navigateTo({
+					url: '../lawyer_my_about/lawyer_my_about',
+					success: res => {},
+					fail: () => {},
+					complete: () => {}
+				});
 			}
 		}
 	}
 </script>
 
 <style>
-
+.pic {
+		padding: 60rpx;
+		width: 150rpx;
+		height: 200rpx;
+		border-radius: 5px;
+		margin-right: 10px;
+	}
 </style>
