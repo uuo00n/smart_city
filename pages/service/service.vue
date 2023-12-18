@@ -173,6 +173,10 @@
 				if (sn === '政府服务热线') {
 					url = '../gov/gov'
 				}
+				if (sn === '志愿服务') {
+					url = '../volunteer/volunteer'
+				}
+				
 				uni.navigateTo({
 					url: url
 				});

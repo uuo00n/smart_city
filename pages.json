@@ -549,6 +549,50 @@
             }
             
         }
+        ,{
+            "path" : "pages/volunteer/volunteer",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "志愿服务",
+                "enablePullDownRefresh": false,
+				"navigationBarBackgroundColor": "#2979ff",
+				"navigationBarTextStyle": "white"
+            }
+            
+        }
+        ,{
+            "path" : "pages/volunteer_activities/volunteer_activities",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "志愿活动",
+                "enablePullDownRefresh": false,
+				"navigationBarBackgroundColor": "#2979ff",
+				"navigationBarTextStyle": "white"
+            }
+            
+        }
+        ,{
+            "path" : "pages/volunteer_my/volunteer_my",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "我的活动",
+                "enablePullDownRefresh": false,
+				"navigationBarBackgroundColor": "#2979ff",
+				"navigationBarTextStyle": "white"
+            }
+            
+        }
+        ,{
+            "path" : "pages/volunteer_act_about/volunteer_act_about",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "活动详细",
+                "enablePullDownRefresh": false,
+				"navigationBarBackgroundColor": "#2979ff",
+				"navigationBarTextStyle": "white"
+            }
+            
+        }
     ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
