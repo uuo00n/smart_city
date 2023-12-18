@@ -20,10 +20,28 @@
 		<view>
 			<uni-section title="问题信息" sub-title="" type="circle"></uni-section>
 		</view>
+		<uni-popup ref="popup" type="bottom" background-color="#fff">
+			<uni-grid :column="4" :showBorder="false" :highlight="false" :square="false"
+				@change="getClassItem">
+				<uni-grid-item v-for="(item, index) in lawClass" :index="index" :key="index">
+					<view class="grid-item-box">
+						<image :src="host + item.imgUrl" mode="" class="image"></image>
+						<text class="text">{{ item.name }}</text>
+					</view>
+				</uni-grid-item>
+			</uni-grid>
+		</uni-popup>
 		<view style="padding: 10rpx 40rpx;">
 			<view>
 				<uni-forms-item label="问题描述">
 					<uni-easyinput type="textarea" v-model="consultData.content" placeholder="请输入需要咨询的内容" />
+				</uni-forms-item>
+				<uni-forms-item label="联系电话" >
+					<uni-easyinput type="number" v-model="consultData.phone" placeholder="请输入联系电话" />
+				</uni-forms-item>
+				<uni-forms-item label="问题类型">
+					<button type="primary" size="mini" @click="open">请选择</button>
+					<text style="padding: 10rpx;" v-if="className != ''">当前选择：{{className}}</text>
 				</uni-forms-item>
 			</view>
 			<view class="example-body">
@@ -42,7 +60,9 @@
 			return {
 				host: 'http://124.93.196.45:10001',
 				lawMsg: [],
+				lawClass: [],
 				lawyerData: [],
+				className:'',
 				consultData: {
 					lawyerId: '',
 					legalExpertiseId: '',
@@ -55,11 +75,27 @@
 		},
 		mounted() {
 			this.getlawMsg()
+			this.getAllClass()
 		},
 		methods: {
 			getlawMsg() {
 				this.lawMsg = uni.getStorageSync("lawyer_msg")
 				this.getLawyerMsg()
+			},
+			getAllClass() {
+				uni.request({
+					url: 'http://124.93.196.45:10001/prod-api/api/lawyer-consultation/legal-expertise/list',
+					method: 'GET',
+					data: {},
+					header: {
+						Authorization: uni.getStorageSync("token")
+					},
+					success: res => {
+						this.lawClass = res.data.rows
+					},
+					fail: () => {},
+					complete: () => {}
+				});
 			},
 			getLawyerMsg() {
 				uni.request({
@@ -78,6 +114,16 @@
 					fail: () => {},
 					complete: () => {}
 				});
+			},
+			open() {
+				// 通过组件定义的ref调用uni-popup方法 ,如果传入参数 ，type 属性将失效 ，仅支持 ['top','left','bottom','right','center']
+				this.$refs.popup.open('bottom')
+			},
+			getClassItem(e){
+				this.consultData.legalExpertiseId = this.lawClass[e.detail.index].id
+				this.className = this.lawClass[e.detail.index].name
+				// 自动关闭pop
+				this.$refs.popup.close();
 			},
 			sendImg(e) {
 				const TF = e.tempFiles[0];
@@ -131,10 +177,7 @@
 					fail: () => {},
 					complete: () => {}
 				});
-			},
-			// getSendState(){
-				
-			// }
+			}
 		}
 	}
 </script>
@@ -165,4 +208,26 @@
 		position: fixed;
 		bottom: 0;
 	}
+	
+	.grid-item-box {
+			flex: 1;
+			// position: relative;
+			/* #ifndef APP-NVUE */
+			display: flex;
+			/* #endif */
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			padding: 15px 0;
+		}
+		
+		.image {
+			width: 35px;
+			height: 35px;
+		}
+		
+		.text {
+			font-size: 12px;
+			margin-top: 5px;
+		}
 </style>

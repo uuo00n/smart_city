@@ -180,7 +180,7 @@
 					},
 					success: res => {
 						this.listData = res.data.rows
-						console.log(res)
+						this.$refs.popup.close();
 					},
 					fail: () => {},
 					complete: () => {}
