@@ -42,16 +42,20 @@
 		data() {
 			return {
 				host: 'http://124.93.196.45:10001',
-				listData: []
+				listData: [],
+				searObj:[]
 			}
 		},
 		mounted() {
 			this.getList()
 		},
 		methods: {
-			goSearch(e) {
-				console.log(e)
-			},
+			// 搜索功能
+			// goSearch(e) {
+			// 	console.log(e)
+			// 	this.searObj = this.listData.filter(item => item.title.includes(e));
+			// 	console.log(this.searObj)
+			// },
 			getList() {
 				uni.request({
 					url: 'http://124.93.196.45:10001/prod-api/api/volunteer-service/activity/list',
@@ -62,6 +66,7 @@
 					},
 					success: res => {
 						this.listData = res.data.rows
+						console.log(res)
 					},
 					fail: () => {},
 					complete: () => {}

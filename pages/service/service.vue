@@ -176,7 +176,9 @@
 				if (sn === '志愿服务') {
 					url = '../volunteer/volunteer'
 				}
-				
+				if (sn === '数字图书馆') {
+					url = '../library/library'
+				}
 				uni.navigateTo({
 					url: url
 				});

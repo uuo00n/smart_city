@@ -593,6 +593,39 @@
             }
             
         }
+        ,{
+            "path" : "pages/library/library",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "数字图书馆",
+                "enablePullDownRefresh": false,
+				"navigationBarBackgroundColor": "#2979ff",
+				"navigationBarTextStyle": "white"
+            }
+            
+        }
+        ,{
+            "path" : "pages/library_about/library_about",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "图书馆详细",
+                "enablePullDownRefresh": false,
+				"navigationBarBackgroundColor": "#2979ff",
+				"navigationBarTextStyle": "white"
+            }
+            
+        }
+        ,{
+            "path" : "pages/library_comment/library_comment",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "图书馆评价",
+                "enablePullDownRefresh": false,
+				"navigationBarBackgroundColor": "#2979ff",
+				"navigationBarTextStyle": "white"
+            }
+            
+        }
     ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
