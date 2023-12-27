@@ -626,6 +626,17 @@
             }
             
         }
+        ,{
+            "path" : "pages/waste/waste",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "垃圾分类",
+                "enablePullDownRefresh": false,
+				"navigationBarBackgroundColor": "#2979ff",
+				"navigationBarTextStyle": "white"
+            }
+            
+        }
     ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",

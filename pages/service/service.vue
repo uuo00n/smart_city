@@ -179,6 +179,9 @@
 				if (sn === '数字图书馆') {
 					url = '../library/library'
 				}
+				if (sn === '垃圾分类') {
+					url = '../waste/waste'
+				}
 				uni.navigateTo({
 					url: url
 				});
