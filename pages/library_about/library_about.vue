@@ -6,6 +6,7 @@
 		<uni-title :title="libData.name" type="h1" style="padding: 10rpx;"></uni-title>
 		<view class="body" style="padding: 30rpx;">
 			<view>位置：{{libData.address}}</view>
+			<view style="text-align: center;"><image :src="host+this.mapUrlNew" mode="aspectFit"></image></view>
 			<view>营业时间：{{libData.businessHours}}</view>
 			<view>营业状态：<text v-if="libData.businessState ==1 " style="color: #18BC37;">营业中</text><text v-else
 					style="color: #E43D33;">休息中</text></view>
@@ -21,7 +22,8 @@
 		data() {
 			return {
 				host: 'http://124.93.196.45:10001',
-				libData: []
+				libData: [],
+				mapUrlNew:""
 			}
 		},
 		mounted() {
@@ -39,6 +41,9 @@
 					data: {},
 					success: res => {
 						this.libData = res.data.data
+						const map = res.data.data.mapUrl;
+						this.mapUrlNew = map.replace("/dev-api", "/prod-api");
+						console.log(this.mapUrlNew)
 					},
 					fail: () => {},
 					complete: () => {}
