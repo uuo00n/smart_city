@@ -29,7 +29,7 @@
 				</view>
 				<view class="news-list" style="padding: 20rpx;">
 					<uni-list>
-						<uni-list-item v-for="(item,index) in newsData" :key="index" clickable>
+						<uni-list-item v-for="(item,index) in newsData" :key="index" clickable @click="goNewsAbo(item)">
 							<view slot="body">
 								<view>{{item.title}}</view>
 								<view style="font-size: 25rpx;">
@@ -126,6 +126,16 @@
 					success: res => {
 						this.newsData = res.data.rows
 					},
+					fail: () => {},
+					complete: () => {}
+				});
+			},
+			goNewsAbo(e){
+				console.log(e)
+				uni.setStorageSync("waste_news",e)
+				uni.navigateTo({
+					url: '../waste_news/waste_news',
+					success: res => {},
 					fail: () => {},
 					complete: () => {}
 				});

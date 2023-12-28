@@ -637,6 +637,17 @@
             }
             
         }
+        ,{
+            "path" : "pages/waste_news/waste_news",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "新闻详细",
+                "enablePullDownRefresh": false,
+				"navigationBarBackgroundColor": "#2979ff",
+				"navigationBarTextStyle": "white"
+            }
+            
+        }
     ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
