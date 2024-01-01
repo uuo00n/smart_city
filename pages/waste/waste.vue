@@ -97,7 +97,22 @@
 				});
 			},
 			goSev(e){
-				console.log(e.detail.index)
+				const nav = e.detail.index
+				if(nav == 0){
+					uni.navigateTo({
+						url: '../waste_search/waste_search',
+						success: res => {},
+						fail: () => {},
+						complete: () => {}
+					});
+				}else{
+					uni.navigateTo({
+						url: '../waste_class/waste_class',
+						success: res => {},
+						fail: () => {},
+						complete: () => {}
+					});
+				}
 			},
 			getnNew(){
 				uni.request({
