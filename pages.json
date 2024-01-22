@@ -630,7 +630,7 @@
             "path" : "pages/waste/waste",
             "style" :                                                                                    
             {
-                "navigationBarTitleText": "垃圾分类",
+                "navigationBarTitleText": "垃圾分类宝典",
                 "enablePullDownRefresh": false,
 				"navigationBarBackgroundColor": "#2979ff",
 				"navigationBarTextStyle": "white"
@@ -642,6 +642,39 @@
             "style" :                                                                                    
             {
                 "navigationBarTitleText": "新闻详细",
+                "enablePullDownRefresh": false,
+				"navigationBarBackgroundColor": "#2979ff",
+				"navigationBarTextStyle": "white"
+            }
+            
+        }
+        ,{
+            "path" : "pages/waste_search/waste_search",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "垃圾搜索",
+                "enablePullDownRefresh": false,
+				"navigationBarBackgroundColor": "#2979ff",
+				"navigationBarTextStyle": "white"
+            }
+            
+        }
+        ,{
+            "path" : "pages/waste_class/waste_class",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "垃圾分类",
+                "enablePullDownRefresh": false,
+				"navigationBarBackgroundColor": "#2979ff",
+				"navigationBarTextStyle": "white"
+            }
+            
+        }
+        ,{
+            "path" : "pages/waste_search_obj/waste_search_obj",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "垃圾分类搜索结果",
                 "enablePullDownRefresh": false,
 				"navigationBarBackgroundColor": "#2979ff",
 				"navigationBarTextStyle": "white"
