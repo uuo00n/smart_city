@@ -681,6 +681,28 @@
             }
             
         }
+        ,{
+            "path" : "pages/waste_class_about/waste_class_about",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "分类详细",
+                "enablePullDownRefresh": false,
+				"navigationBarBackgroundColor": "#2979ff",
+				"navigationBarTextStyle": "white"
+            }
+            
+        }
+        ,{
+            "path" : "pages/waste_class_about2/waste_class_about2",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "垃圾热词搜索结果",
+                "enablePullDownRefresh": false,
+				"navigationBarBackgroundColor": "#2979ff",
+				"navigationBarTextStyle": "white"
+            }
+            
+        }
     ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
