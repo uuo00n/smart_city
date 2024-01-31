@@ -114,7 +114,13 @@
 				});
 			},
 			goClassAbo(e) {
-				console.log(e)
+				uni.setStorageSync("stationMsg",e)
+				uni.navigateTo({
+					url: '../station_about/station_about',
+					success: res => {},
+					fail: () => {},
+					complete: () => {}
+				});
 			},
 			getStationList() {
 				uni.request({

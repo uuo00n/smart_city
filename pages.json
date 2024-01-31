@@ -718,7 +718,18 @@
             "path" : "pages/station_about/station_about",
             "style" :                                                                                    
             {
-                "navigationBarTitleText": "驿站详细",
+                "navigationBarTitleText": "人才政策",
+                "enablePullDownRefresh": false,
+				"navigationBarBackgroundColor": "#2979ff",
+				"navigationBarTextStyle": "white"
+            }
+            
+        }
+        ,{
+            "path" : "pages/policy_about/policy_about",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "政策详细",
                 "enablePullDownRefresh": false,
 				"navigationBarBackgroundColor": "#2979ff",
 				"navigationBarTextStyle": "white"
