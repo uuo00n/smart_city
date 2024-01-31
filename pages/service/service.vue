@@ -182,6 +182,9 @@
 				if (sn === '垃圾分类') {
 					url = '../waste/waste'
 				}
+				if (sn === '青年驿站') {
+					url = '../station/station'
+				}
 				uni.navigateTo({
 					url: url
 				});

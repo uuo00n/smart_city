@@ -703,6 +703,28 @@
             }
             
         }
+        ,{
+            "path" : "pages/station/station",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "青年驿站",
+                "enablePullDownRefresh": false,
+				"navigationBarBackgroundColor": "#2979ff",
+				"navigationBarTextStyle": "white"
+            }
+            
+        }
+        ,{
+            "path" : "pages/station_about/station_about",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "驿站详细",
+                "enablePullDownRefresh": false,
+				"navigationBarBackgroundColor": "#2979ff",
+				"navigationBarTextStyle": "white"
+            }
+            
+        }
     ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
