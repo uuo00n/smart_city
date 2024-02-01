@@ -736,6 +736,17 @@
             }
             
         }
+        ,{
+            "path" : "pages/station_know/station_know",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "驿站详细",
+                "enablePullDownRefresh": false,
+				"navigationBarBackgroundColor": "#2979ff",
+				"navigationBarTextStyle": "white"
+            }
+            
+        }
     ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",

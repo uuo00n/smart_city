@@ -32,7 +32,7 @@
 			<view>
 				<uni-collapse accordion v-model="accordionVal">
 					<view v-for="(item,index) in stationList">
-						<uni-list-item clickable @click="" style="display: flex;">
+						<uni-list-item clickable @click="goStationAbo(item)" style="display: flex;">
 							<image :src="host+item.coverImgUrl" slot="header" mode="aspectFit"
 								style="flex: 1; width: 200rpx; height: 200rpx; border-radius: 5px; margin-right: 10px;">
 							</image>
@@ -117,6 +117,15 @@
 				uni.setStorageSync("stationMsg",e)
 				uni.navigateTo({
 					url: '../station_about/station_about',
+					success: res => {},
+					fail: () => {},
+					complete: () => {}
+				});
+			},
+			goStationAbo(e){
+				uni.setStorageSync("stationMsgAbo",e)
+				uni.navigateTo({
+					url: '../station_know/station_know',
 					success: res => {},
 					fail: () => {},
 					complete: () => {}
